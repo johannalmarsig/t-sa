@@ -86,9 +86,17 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 1.4rem;
 }
-.site-nav a { color: var(--muted); transition: 0.25s ease; }
+.site-nav a {
+  color: var(--muted);
+  transition: 0.25s ease;
+}
+
 .site-nav a:hover,
-.site-nav a.active { color: var(--white); }
+.site-nav a.active {
+  color: var(--white);
+  font-weight: 600;
+  opacity: 1;
+}
 .nav-cta {
   padding: 0.8rem 1rem;
   border-radius: 999px;

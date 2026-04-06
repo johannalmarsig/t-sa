@@ -18,6 +18,18 @@ navLinks.forEach(link => {
   });
 });
 
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+document.querySelectorAll('.site-nav a').forEach(link => {
+  const href = link.getAttribute('href');
+
+  if (!href) return;
+
+  if (href === currentPage) {
+    link.classList.add('active');
+  }
+});
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -30,14 +42,18 @@ const observer = new IntersectionObserver((entries) => {
 revealItems.forEach(item => observer.observe(item));
 
 const sections = document.querySelectorAll('main section[id]');
+
 window.addEventListener('scroll', () => {
   const offset = window.scrollY + 120;
+
   sections.forEach(section => {
     const top = section.offsetTop;
     const bottom = top + section.offsetHeight;
     const id = section.getAttribute('id');
     const link = document.querySelector(`.site-nav a[href="#${id}"]`);
+
     if (!link) return;
+
     link.classList.toggle('active', offset >= top && offset < bottom);
   });
 });
@@ -57,3 +73,4 @@ contactForm?.addEventListener('submit', (event) => {
   formMessage.textContent = 'Takk fyrir! Tengdu formið við netþjón eða Formspree til að senda raunveruleg skilaboð.';
   contactForm.reset();
 });
+
