@@ -413,6 +413,17 @@ input, select, textarea {
   border-radius: 16px;
   padding: 0.95rem 1rem;
   font: inherit;
+  appearance: none; /* important */
+}
+
+select option {
+  background: #0b1a2d;   /* dark background */
+  color: #ffffff;        /* white text */
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--accent);
 }
 textarea { resize: vertical; }
 .form-note { margin: 0.9rem 0 0; color: var(--accent-2); min-height: 1.2rem; }
